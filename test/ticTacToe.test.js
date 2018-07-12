@@ -23,5 +23,11 @@ describe('TicTacToe', () => {
       game.play('C1');
       expect(game.players.player1.moves.length).toEqual(2);
     });
+
+    it('stops a player selecting a square that has been taken', () => {
+      game.play('A1');
+      expect(game.players.player2.moves.length).toEqual(0);
+      expect(game.turn).toEqual('player2');
+    });
   });
 });
