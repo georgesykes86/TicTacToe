@@ -12,6 +12,12 @@ describe('Player', () => {
       const move = 'A1';
       expect(player.isAlreadySelectedMove(move)).toBeFalsy();
     });
+
+    it('returns true if a player already has that move selected', () => {
+      const move = 'A1';
+      player.moves.push(move);
+      expect(player.isAlreadySelectedMove(move)).toBeTruthy();
+    });
   });
 
   describe('#addMove', () => {
