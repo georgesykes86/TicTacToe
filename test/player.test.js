@@ -35,5 +35,9 @@ describe('Player', () => {
       player.addMove('C1');
       expect(player.isWinner()).toBeTruthy();
     });
+
+    it('returns false when the player has not won', () => {
+      expect(player.isWinner()).toBeFalsy();
+    });
   });
 });
