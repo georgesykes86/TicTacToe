@@ -53,5 +53,12 @@ describe('Player', () => {
       player.addMove('A3');
       expect(player.isWinner()).toBeTruthy();
     });
+
+    it('declares a winner when another column is locked out', () => {
+      player.addMove('C1');
+      player.addMove('C2');
+      player.addMove('C3');
+      expect(player.isWinner()).toBeTruthy();
+    });
   });
 });
