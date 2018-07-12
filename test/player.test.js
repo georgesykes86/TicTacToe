@@ -33,6 +33,14 @@ describe('Player', () => {
       expect(player.isWinner()).toBeFalsy();
     });
 
+    it('returns false when the player has not won in another scenario', () => {
+      player.addMove('A1');
+      player.addMove('B1');
+      player.addMove('A2');
+      player.addMove('B2');
+      expect(player.isWinner()).toBeFalsy();
+    });
+
     it('declares a winner when top row locked out', () => {
       player.addMove('A1');
       player.addMove('B1');
@@ -58,6 +66,20 @@ describe('Player', () => {
       player.addMove('C1');
       player.addMove('C2');
       player.addMove('C3');
+      expect(player.isWinner()).toBeTruthy();
+    });
+
+    it('declares a winner when a diagonal is locked out', () => {
+      player.addMove('A1');
+      player.addMove('B2');
+      player.addMove('C3');
+      expect(player.isWinner()).toBeTruthy();
+    });
+
+    it('declares a winner when another diagonal is locked out', () => {
+      player.addMove('C1');
+      player.addMove('B2');
+      player.addMove('A3');
       expect(player.isWinner()).toBeTruthy();
     });
   });
