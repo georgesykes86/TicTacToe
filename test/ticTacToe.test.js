@@ -30,7 +30,7 @@ describe('TicTacToe', () => {
       });
 
       it('registers a turn for player 2', () => {
-        let secondMove = 'B1';
+        const secondMove = 'B1';
         game.play(secondMove);
         expect(p2Spy).toHaveBeenCalledWith(secondMove);
       });
@@ -46,6 +46,12 @@ describe('TicTacToe', () => {
       p1SelectionSpy = jest.spyOn(player1, 'isAlreadySelectedMove').mockReturnValue(true);
       game.play('A1');
       expect(p1Spy).not.toHaveBeenCalledWith();
+    });
+
+    it('does nothing if the game is over', () => {
+      game.isOver = true;
+      game.play('B1');
+      expect(p2Spy).not.toHaveBeenCalledWith();
     });
   });
 });
