@@ -39,5 +39,12 @@ describe('Player', () => {
     it('returns false when the player has not won', () => {
       expect(player.isWinner()).toBeFalsy();
     });
+
+    it('declares a winner when another row locked out', () => {
+      player.addMove('A2');
+      player.addMove('B2');
+      player.addMove('C2');
+      expect(player.isWinner()).toBeTruthy();
+    });
   });
 });
