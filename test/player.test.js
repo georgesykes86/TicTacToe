@@ -29,6 +29,10 @@ describe('Player', () => {
   });
 
   describe('#isWinner', () => {
+    it('returns false when the player has not won', () => {
+      expect(player.isWinner()).toBeFalsy();
+    });
+
     it('declares a winner when top row locked out', () => {
       player.addMove('A1');
       player.addMove('B1');
@@ -36,14 +40,17 @@ describe('Player', () => {
       expect(player.isWinner()).toBeTruthy();
     });
 
-    it('returns false when the player has not won', () => {
-      expect(player.isWinner()).toBeFalsy();
-    });
-
     it('declares a winner when another row locked out', () => {
       player.addMove('A2');
       player.addMove('B2');
       player.addMove('C2');
+      expect(player.isWinner()).toBeTruthy();
+    });
+
+    it('declares a winner when a column is locked out', () => {
+      player.addMove('A1');
+      player.addMove('A2');
+      player.addMove('A3');
       expect(player.isWinner()).toBeTruthy();
     });
   });
