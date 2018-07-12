@@ -27,4 +27,13 @@ describe('Player', () => {
       expect(player.isAlreadySelectedMove(move)).toBeTruthy();
     });
   });
+
+  describe('#isWinner', () => {
+    it('declares a winner when top row locked out', () => {
+      player.addMove('A1');
+      player.addMove('B1');
+      player.addMove('C1');
+      expect(player.isWinner()).toBeTruthy();
+    });
+  });
 });
