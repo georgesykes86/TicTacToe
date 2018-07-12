@@ -17,7 +17,7 @@ describe('Successful game', () => {
     expect(game.isOver).toBeFalsy();
     expect(game.result).toEqual(null);
     game.play('A2');
-    expect(game.isOver).toBetruthy();
+    expect(game.isOver).toBeTruthy();
     expect(game.result).toEqual('Player 1 wins');
   });
 
@@ -30,7 +30,7 @@ describe('Successful game', () => {
     expect(game.isOver).toBeFalsy();
     expect(game.result).toEqual(null);
     game.play('C1');
-    expect(game.isOver).toBetruthy();
+    expect(game.isOver).toBeTruthy();
     expect(game.result).toEqual('Player 2 wins');
   });
 
@@ -46,7 +46,7 @@ describe('Successful game', () => {
     expect(game.isOver).toBeFalsy();
     expect(game.result).toEqual(null);
     game.play('C3');
-    expect(game.isOver).toBetruthy();
+    expect(game.isOver).toBeTruthy();
     expect(game.result).toEqual('Draw');
   });
 });
