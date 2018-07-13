@@ -4,7 +4,7 @@ const Player = require('../lib/player');
 jest.mock('../lib/player');
 
 describe('TicTacToe', () => {
-  let game; let p1Spy; let p2Spy; let p1SelectionSpy; let p2SelectionSpy;
+  let game; let p1Spy; let p2Spy;
   const player1 = new Player();
   const player2 = new Player();
   const firstMove = 'A1';
@@ -21,8 +21,8 @@ describe('TicTacToe', () => {
   describe('#play', () => {
     describe('No duplicate selections', () => {
       beforeEach(() => {
-        p1SelectionSpy = jest.spyOn(player1, 'isAlreadySelectedMove').mockReturnValue(false);
-        p1SelectionSpy = jest.spyOn(player2, 'isAlreadySelectedMove').mockReturnValue(false);
+        jest.spyOn(player1, 'isAlreadySelectedMove').mockReturnValue(false);
+        jest.spyOn(player2, 'isAlreadySelectedMove').mockReturnValue(false);
       });
 
       it('registers a turn for player 1', () => {
@@ -43,7 +43,7 @@ describe('TicTacToe', () => {
     });
 
     it('stops a player selecting a square that has been taken', () => {
-      p1SelectionSpy = jest.spyOn(player1, 'isAlreadySelectedMove').mockReturnValue(true);
+      jest.spyOn(player1, 'isAlreadySelectedMove').mockReturnValue(true);
       game.play('A1');
       expect(p1Spy).not.toHaveBeenCalledWith();
     });
